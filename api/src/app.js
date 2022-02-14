@@ -4,20 +4,19 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
 const axios = require('axios')
-const {conn, Country, Activity, Activity_Country}= require('./db.js');
+const {conn, Country, Activity, Activity_Country}= require('./db.js').default;
 
 Country.sync({force: true}).then(
   axios.get('https://restcountries.com/v3.1/all')
   .then((res) =>{
     let countriesArray = []
     countriesArray = res.data.map( c =>{
-      //console.log(c.capital) 
-      // not al countries have capitals!?
       let country = {
         name : c.name.common,
         id : c.cca3,
         flag : c.flags.svg,
         continent : c.continents.join(', '),
+        // not al countries have capitals!?
         capital : c.capital ? c.capital.join(', ') : 'N/A',
         area : c.area,
         population: c.population
@@ -36,6 +35,8 @@ Country.sync({force: true}).then(
     console.log(error)
   })
 )
+
+Activity.sync()
 
 
 const server = express();
