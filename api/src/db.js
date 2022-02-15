@@ -6,7 +6,6 @@ const axios = require('axios')
 const {
   DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
-console.log(DB_USER, DB_PASSWORD)
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5432/countries`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
