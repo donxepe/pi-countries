@@ -1,6 +1,18 @@
-const { Activity, Country } = require('../db.js')
-const router = require('express').Router()
+const { Router } = require('express');
+const { getAllCountries } = require('../controllers/country')
 
-router.get('/', async function(req, res) {
-    // here I need to return the list of countries (from my db)
+
+const countryRouter = Router();
+
+countryRouter.get('/', getAllCountries) 
+
+countryRouter.get('/:idCountry', async function(req,res){
+    const { idCountry } = req.params;
+    const country = await Country.findByPk(idCountry, {
+        include: Page
+    })
+    if (!country) return res.sendStatus(404);
+    res.json(country)
 })
+
+module.exports = countryRouter;

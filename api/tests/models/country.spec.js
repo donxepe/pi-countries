@@ -1,4 +1,4 @@
-const { Country, Activity, conn } = require('../../src/db.js');
+const { Country, Activity, conn } = require('../../src/db.js').default;
 const { expect } = require('chai');
 
 describe('Country model', () => {

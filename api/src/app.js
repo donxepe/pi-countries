@@ -3,40 +3,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
-const axios = require('axios')
-const {conn, Country, Activity, Activity_Country}= require('./db.js').default;
-
-Country.sync({force: true}).then(
-  axios.get('https://restcountries.com/v3.1/all')
-  .then((res) =>{
-    let countriesArray = []
-    countriesArray = res.data.map( c =>{
-      let country = {
-        name : c.name.common,
-        id : c.cca3,
-        flag : c.flags.svg,
-        continent : c.continents.join(', '),
-        // not al countries have capitals!?
-        capital : c.capital ? c.capital.join(', ') : 'N/A',
-        area : c.area,
-        population: c.population
-      }
-      return country
-    })
-    return countriesArray
-  })
-  .then( (data) =>{
-    Country.bulkCreate(data)
-  })
-  .then(()=>{
-    console.log('db populated')
-  })
-  .catch( (err) => {
-    console.log(error)
-  })
-)
-
-Activity.sync()
+require('./db')
 
 
 const server = express();

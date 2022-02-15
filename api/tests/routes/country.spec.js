@@ -2,11 +2,17 @@
 const { expect } = require('chai');
 const session = require('supertest-session');
 const app = require('../../src/app.js');
-const { Country, conn } = require('../../src/db.js');
+const { Country, conn } = require('../../src/db.js').default;
 
 const agent = session(app);
 const country = {
-  name: 'Argentina',
+  name: 'zz-test-Argentina',
+  id : 'cca',
+  flag : 'svg',
+  continent : 'America',
+  capital : 'Buenos Aires',
+  area : 25000,
+  populuation : 100
 };
 
 describe('Country routes', () => {
