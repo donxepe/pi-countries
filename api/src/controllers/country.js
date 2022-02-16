@@ -4,7 +4,7 @@ const axios = require('axios');
 
 const getAllCountries = async(req, res) =>{
     const { name } = req.query;
-    let db = await Country.findAll(name && {
+    let db = await Country.findAll(name && { //run findAll with no args if no name
         where : {
             name : {
                 [Op.iLike] : `%${name}%`
@@ -13,7 +13,6 @@ const getAllCountries = async(req, res) =>{
     } )
     if (db.length === 0) return res.status(404).send("País no encontrado") 
     res.send(db)
-
 }
 
 const getIdCountry = async(req, res) => {
