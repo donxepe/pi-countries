@@ -38,7 +38,7 @@ conn.sync({ force: true })
     let country = {
       name : c.name.common,
       id : c.cca3,
-      flag : c.flags.svg,
+      flag : c.flags.png,
       continent : c.continents.join(', '),
       // not al countries have capitals!?
       capital : c.capital ? c.capital.join(', ') : 'N/A',
