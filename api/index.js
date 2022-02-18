@@ -48,7 +48,7 @@ conn.sync({ force: true })
   return countriesArray;
 })
 .then((data) => {
-  Country.bulkCreate(data)
+  Country.bulkCreate(data, {Validate: true})
 })
 .then(() => {
   console.log('db populated')
