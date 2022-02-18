@@ -42,8 +42,6 @@ conn.sync({ force: true })
       continent : c.continents.join(', '),
       // not al countries have capitals!?
       capital : c.capital ? c.capital.join(', ') : 'N/A',
-      area : c.area,
-      population: c.population
     }
     return country;
   })

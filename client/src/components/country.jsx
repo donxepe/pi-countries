@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function CountryCard({name,flag}){
+export default function CountryCard({name, flag, continent}){
     return (
         <div>
             <div>
@@ -8,6 +8,9 @@ export default function CountryCard({name,flag}){
             </div>
             <div>
                 <img src={flag} alt={`bandera de ${name}`} />
+            </div>
+            <div>
+                <h2>{continent}</h2>
             </div>
         </div>
     )

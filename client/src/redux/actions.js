@@ -4,6 +4,7 @@ export const GET_COUNTRIES = "GET COUNTRIES";
 export const API_GET = "http://localhost:3001/countries";
 export const GET_DETAIL = "GET DETAIL"
 export const ID_GET = "http://localhost:3001/countries"
+export const FILTER = 'FILTER';
 
 export function obtener(){
     return async function request(dispatch){
@@ -23,4 +24,14 @@ export function getActivities(countryID){
 			payload: apiResponse.data
 		})
 	}
+}
+
+export function filter(value){
+    return (dispatch) => {
+        dispatch({
+            type: FILTER, 
+            payload: value
+        })
+    }
+
 }
