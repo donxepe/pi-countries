@@ -11,6 +11,7 @@ export default function Cards() {
     
     useEffect(()=>{
         dispatch(obtener())
+        // eslint-disable-next-line
     }, [])
 
     return (
