@@ -1,4 +1,4 @@
-import { FILTER, GET_COUNTRIES } from "./actions";
+import { FILTER, SORT, GET_COUNTRIES } from "./actions";
 
 const initialState = {
     countries: [],
@@ -27,6 +27,44 @@ export default function rootReducer(state = initialState, action){
                     filtered: state.countries.filter(
                         c => c.continent === action.payload
                     )
+                }
+            } else {
+                return {
+                    ...state
+                }
+            }
+        case SORT:
+            if (action.payload === "Default") {
+                return {
+                    ...state,
+                    filtered: state.filtered.slice().sort( (a,b) => {
+                        if (a.name > b.name) return 1
+                        return -1
+                    })
+                }
+            } else if (action.payload === "aDesc") {
+                return {
+                    ...state,
+                    filtered: state.filtered.slice().sort( (a,b) => {
+                        if (a.name > b.name) return -1
+                        return 1
+                    })
+                }
+            } else if (action.payload === "pAsc") {
+                return {
+                    ...state,
+                    filtered: state.filtered.slice().sort( function (a,b){
+                        if (a.population > b.population) return 1
+                        return -1
+                    })
+                }
+            } else if (action.payload === 'pDesc') {
+                return {
+                    ...state,
+                    filtered: state.filtered.slice().sort( function (a,b){
+                        if (a.population > b.population) return -1
+                        return 1
+                    })
                 }
             } else {
                 return {

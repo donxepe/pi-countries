@@ -40,6 +40,7 @@ conn.sync({ force: true })
       id : c.cca3,
       flag : c.flags.png,
       continent : c.continents.join(', '),
+      population : c.population,
       // not al countries have capitals!?
       capital : c.capital ? c.capital.join(', ') : 'N/A',
     }

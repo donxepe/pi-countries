@@ -5,6 +5,7 @@ export const API_GET = "http://localhost:3001/countries";
 export const GET_DETAIL = "GET DETAIL"
 export const ID_GET = "http://localhost:3001/countries"
 export const FILTER = 'FILTER';
+export const SORT = 'SORT';
 
 export function obtener(){
     return async function request(dispatch){
@@ -34,4 +35,13 @@ export function filter(value){
         })
     }
 
+}
+
+export function sort(value){
+    return (dispatch) => {
+        dispatch({
+            type: SORT, 
+            payload: value 
+        })
+    }
 }
