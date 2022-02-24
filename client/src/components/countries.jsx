@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { obtener } from '../redux/actions';
 import Filter from './filter';
 import Sort from './sort';
+import Search from './search';
 
 
 export default function Cards() {
@@ -18,6 +19,7 @@ export default function Cards() {
     return (
         <div>
             <h2>Paises del mundo</h2>
+            <Search />
             <label>Filtrar por continente</label>
             <Filter />
             <label>Ordenar</label>

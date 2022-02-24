@@ -3,7 +3,15 @@ const { Op } = require('sequelize');
 const axios = require('axios');
 
 const getAllCountries = async(req, res) =>{
-    let db = await Country.findAll({order:['name'] })
+    const { name } = req.query;
+    let db = await Country.findAll(name && { //run findAll with no args if no name
+        where : {
+            name : {
+                [Op.iLike] : `%${name}%`
+            }
+        }
+    } )
+    if (db.length === 0) return res.status(404).send("País no encontrado") 
     res.send(db)
 }
 

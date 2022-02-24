@@ -12,6 +12,7 @@ export default function Sort(){
     return (
         <div>
             <select onChange={handleSelect}>
+                <option>Selecciona</option>
                 <option value="Default">Alfabético ↑</option>
                 <option value="aDesc">Alfabético ↓</option>
                 <option value="pAsc">Población ↓</option>

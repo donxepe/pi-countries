@@ -6,6 +6,7 @@ export const GET_DETAIL = "GET DETAIL"
 export const ID_GET = "http://localhost:3001/countries"
 export const FILTER = 'FILTER';
 export const SORT = 'SORT';
+export const SEARCH = 'SEARCH';
 
 export function obtener(){
     return async function request(dispatch){
@@ -13,6 +14,16 @@ export function obtener(){
         return dispatch({
             type: GET_COUNTRIES, 
             payload: apiRequest.data
+        })
+    }
+}
+
+export function search(cName){
+    return async (dispatch) => {
+        let apiResponse = await axios.get(`${API_GET}?name=${cName}`)
+        return dispatch({
+            type: SEARCH,
+            payload: apiResponse.data
         })
     }
 }
