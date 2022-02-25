@@ -17,10 +17,14 @@ const getAllCountries = async(req, res) =>{
 
 const getIdCountry = async(req, res) => {
     const { idCountry } = req.params;
-    const country = await Country.findByPk(idCountry.toUpperCase(), {
+    let country = await Country.findByPk(idCountry.toUpperCase(), {
         include: Activity
     })
     if (!country) return res.sendStatus(404);
+    let apiCountry = await axios.get(`https://restcountries.com/v3/alpha/${idCountry}`)
+    apiCountry = apiCountry.data[0]
+    country.subregion = apiCountry.subregion
+    country.area = apiCountry.area 
     res.json(country)
 }
 
