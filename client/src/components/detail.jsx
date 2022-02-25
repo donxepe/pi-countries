@@ -15,7 +15,8 @@ export default function Detail(){
 
     const detailState = useSelector((state) => state.detail)
     
-const {name, flag, continent, population, capital, subregion, area, activities} = detailState
+var {name, flag, continent, population, capital, subregion, area, activities} = detailState
+
     return (
         <div>
             <div>
@@ -29,11 +30,11 @@ const {name, flag, continent, population, capital, subregion, area, activities} 
                 <img src={flag} alt={`bandera de ${name}`} />
             </div>
             <ul>
-                <li>Población: {population}</li>
-                <li>Capital(es): {capital}</li>
+                <li>Población: {population} personas</li>
+                <li>Capital: {capital}</li>
                 <li>Subregión: {subregion}</li>
                 <li>Área: {area} Km²</li>
-                {activities[0] &&<li>Actividades: {activities} </li>}
+                <li>Actividades: {activities} </li>
             </ul>
         </div>
     )

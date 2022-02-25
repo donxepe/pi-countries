@@ -28,13 +28,8 @@ const getIdCountry = async(req, res) => {
     res.json(country)
 }
 
-const getNameCountry = async(req,res ) =>{
-
-
-}
 
 module.exports = {
     getAllCountries,
     getIdCountry,
-    getNameCountry
 }
