@@ -36,7 +36,7 @@ export default function Cards() {
                 />
                 ))
             ):(
-                <h2>Loading...</h2>
+                <h2>No se encontraron paises</h2>
             )}
         </div>
     )

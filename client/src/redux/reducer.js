@@ -85,7 +85,6 @@ export default function rootReducer(state = initialState, action){
                     ...state, 
                     filtered: action.payload
                 }
-
             } else {
                 return {
                     ...state

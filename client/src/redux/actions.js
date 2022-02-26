@@ -22,9 +22,10 @@ export function obtener(){
 export function search(cName){
     return async (dispatch) => {
         let apiResponse = await axios.get(`${API_GET}?name=${cName}`)
+        .catch(console.error)
         return dispatch({
             type: SEARCH,
-            payload: apiResponse.data
+            payload: apiResponse ? apiResponse.data : []
         })
     }
 }
