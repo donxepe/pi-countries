@@ -29,6 +29,7 @@ export default function Cards() {
                 renderCountries.map((c, i) => (
                 <CountryCard 
                     key={i} 
+                    id={c.id}
                     name={c.name} 
                     flag={c.flag} 
                     continent={c.continent}
