@@ -21,7 +21,7 @@ const getAllCountries = async(req, res) =>{
     //    var db = await axios.get(`https://restcountries.com/v3/name/${name}`).data
     //}
 
-    if (!db) return res.status(404).send("País no encontrado") 
+    if (db.length === 0) return res.status(404).send("País no encontrado") 
     res.send(db)
 }
 
