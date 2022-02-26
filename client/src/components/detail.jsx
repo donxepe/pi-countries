@@ -15,13 +15,13 @@ export default function Detail(){
 
     const detailState = useSelector((state) => state.detail)
     
-var {name, flag, continent, population, capital, subregion, area, activities} = detailState
+var {name, flag, continent, population, capital, subregion, area, activities, id} = detailState
 
     return (
         <div>
             <div>
                 <h1>Detalle de pais</h1>
-                <h1>{name}</h1>
+                <h1>{name} ({id})</h1>
             </div>
             <div>
                 <h2>{continent}</h2>
