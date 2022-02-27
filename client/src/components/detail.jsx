@@ -41,7 +41,7 @@ var {name, flag, continent, population, capital, subregion, area, activities, id
                     <ul key={i}>
                         <li>Nombre: {a.name}</li>
                         <li>Dificultad: {a.dificulty}</li>
-                        <li>Duración: {a.duration}</li>
+                        <li>Duración: {a.duration} horas</li>
                         <li>Temporada: {a.season}</li>
                     </ul>
                 ))):(
