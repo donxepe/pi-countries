@@ -34,8 +34,20 @@ var {name, flag, continent, population, capital, subregion, area, activities, id
                 <li>Capital: {capital}</li>
                 <li>Subregión: {subregion}</li>
                 <li>Área: {area} Km²</li>
-                <li>Actividades: {activities} </li>
             </ul>
+            <div>
+                <h2>Actividades</h2>
+                {activities ?(activities?.map((a,i) => (
+                    <ul key={i}>
+                        <li>Nombre: {a.name}</li>
+                        <li>Dificultad: {a.dificulty}</li>
+                        <li>Duración: {a.duration}</li>
+                        <li>Temporada: {a.season}</li>
+                    </ul>
+                ))):(
+                    <h3>Sin actividades</h3>
+                ) }
+            </div>
         </div>
     )
 }
