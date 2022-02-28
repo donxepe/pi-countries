@@ -1,15 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import CountryCard from './country';
 import { useDispatch, useSelector } from 'react-redux'
 import { obtener } from '../redux/actions';
 import Filter from './filter';
 import Sort from './sort';
 import Search from './search';
+import Pagination from './pagination';
 
 
 export default function Cards() {
     const dispatch = useDispatch()
     const renderCountries = useSelector((state) => state.filtered);
+    
+    // Pagination 
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage, setPostsPerPage] = useState(9);
+
+    const indexOfLastPost = currentPage > 1 ? currentPage * postsPerPage -1 : currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = renderCountries.slice(indexOfFirstPost, indexOfLastPost);
+
+
+    const paginate = (pageNumber) => {
+        pageNumber === 1 ? setPostsPerPage(9) : setPostsPerPage(10)
+        setCurrentPage(pageNumber);
+
+    }
+
     
     useEffect(()=>{
         dispatch(obtener())
@@ -24,9 +41,10 @@ export default function Cards() {
             <Filter />
             <label>Ordenar</label>
             <Sort />
+            <Pagination postsPerPage={postsPerPage} totalPosts={renderCountries.length} paginate={paginate} current={currentPage}/>
 
-            {renderCountries.length > 0 ? (
-                renderCountries.map((c, i) => (
+            {currentPosts.length > 0 ? (
+                currentPosts.map((c, i) => (
                 <CountryCard 
                     key={i} 
                     id={c.id}
