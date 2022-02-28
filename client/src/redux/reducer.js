@@ -80,14 +80,17 @@ export default function rootReducer(state = initialState, action){
                 }
             }
         case SEARCH: 
-            if (action.payload){
+            if (state.countries.length === state.filtered.length){
                 return {
                     ...state, 
+                    countries: action.payload,
                     filtered: action.payload
                 }
             } else {
                 return {
-                    ...state
+                    ...state,
+                    countries: state.filtered,
+                    filtered: action.payload
                 }
             }
 
