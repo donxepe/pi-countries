@@ -1,0 +1,30 @@
+.landing-main {
+    background-color: rgb(133, 130, 130);
+
+}
+
+body {
+    background-color: rgb(133, 130, 130);
+}
+
+.logo {
+    max-height: 40vh;
+    margin: 30px;
+}
+
+.landing-link {
+  text-decoration: none;
+  border: 3px solid yellow;
+  padding: 40px 80px;
+  font-size: 28px;
+  letter-spacing: 5px;
+  position: relative;
+  margin: 30px;
+  color: black;
+}
+
+.landing-link:hover {
+    color: rgb(87, 87, 87);
+}
+
+
