@@ -1,3 +1,4 @@
+import './search.css'
 import React  from 'react';
 import { useDispatch } from 'react-redux';
 import {obtener, search} from '../redux/actions'
@@ -15,8 +16,7 @@ export default function Search(){
 
     return (
         <div>
-            <label>Buscar País</label>
-            <input onChange={handleSearch} />
+            <input class='topItem' onChange={handleSearch} placeholder={'Buscar País'}/>
         </div>    
 
     )

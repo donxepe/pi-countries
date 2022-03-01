@@ -16,8 +16,8 @@ export default function ActivityFilter(){
 
     return (
         <div>
-            <select onChange={handleSelect}>
-                <option value="Default">Selecciona Actividad</option>
+            <select onChange={handleSelect} className='topItem'>
+                <option value="Default">Actividad</option>
                 {stateActivities && stateActivities.map((ac, i) => {
                     return <option key={i} value={ac.name}>{ac.name}</option>
                 })

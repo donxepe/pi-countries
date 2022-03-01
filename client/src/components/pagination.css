@@ -1,0 +1,19 @@
+.pagButton {
+    outline: 1px solid gray;
+    background-color: #282c34;
+    color: white;
+    padding: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    text-decoration: none;
+}
+
+.pagButton:hover {
+    color: white;
+}
+
+.pagNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}

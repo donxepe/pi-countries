@@ -1,3 +1,4 @@
+import './countries.css'
 import React, { useEffect, useState } from 'react';
 import CountryCard from './country';
 import { useDispatch, useSelector } from 'react-redux'
@@ -39,13 +40,23 @@ export default function Cards() {
 
     return (
         <div>
-            <h2>Paises del mundo</h2>
-            <Search />
-            <label>Filtrar por continente</label>
-            <Filter />
-            <ActivityFilter/>
-            <label>Ordenar</label>
-            <Sort />
+            <h2 className='countriesTitle'>Paises del mundo</h2>
+            <div className='countriesTop'>
+                <div className='countriesTopLeft countriesTopItems'> 
+                    <Search />
+                </div>
+                <div className='countriesTopRight'>
+                    <div className='countriesTopItems'>
+                        <Filter />
+                    </div>
+                    <div className='countriesTopItems'>
+                        <ActivityFilter />
+                    </div>
+                    <div className='countriesTopItems'>
+                        <Sort />
+                    </div>
+                </div>
+            </div>
             <Pagination postsPerPage={postsPerPage} totalPosts={renderCountries.length} paginate={paginate} current={currentPage}/>
 
             {currentPosts.length > 0 ? (

@@ -1,0 +1,31 @@
+.countriesTitle {
+    color: rgb(37, 37, 37);
+}
+
+.countriesTop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.countriesTopItems {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+
+
+.countriesTopLeft {
+    display: flex;
+}
+
+.countriesTopRight {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.countriesBottom {
+    display: flex;
+    flex-direction: row;
+}

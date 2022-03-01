@@ -1,3 +1,4 @@
+import './search.css'
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { sort } from '../redux/actions'
@@ -11,12 +12,12 @@ export default function Sort(){
 
     return (
         <div>
-            <select onChange={handleSelect}>
-                <option>Selecciona</option>
-                <option value="Default">Alfabético ↑</option>
-                <option value="aDesc">Alfabético ↓</option>
-                <option value="pAsc">Población ↓</option>
-                <option value="pDesc">Población ↑</option>
+            <select className='topItem' onChange={handleSelect}>
+                <option>Ordenar...</option>
+                <option value="Default">A...z</option>
+                <option value="aDesc">Z...a</option>
+                <option value="pAsc">Menor Población</option>
+                <option value="pDesc">Mayor Población</option>
             </select>
         </div>
     );

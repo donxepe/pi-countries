@@ -1,3 +1,4 @@
+import './search.css'
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { filter } from '../redux/actions'
@@ -11,8 +12,8 @@ export default function Filter(){
 
     return (
         <div>
-            <select onChange={handleSelect}>
-                <option value="Default">Default - todos</option>
+            <select className='topItem' onChange={handleSelect}>
+                <option value="Default">Continente</option>
                 <option value="Africa">África</option>
                 <option value="North America">América del Norte</option>
                 <option value="South America">América del Sur</option>
