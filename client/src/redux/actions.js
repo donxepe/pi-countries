@@ -5,7 +5,9 @@ export const API_GET = "http://localhost:3001/countries";
 export const GET_DETAIL = "GET DETAIL"
 export const GET_ACTIVITIES = "GET_ACTIVITIES"
 export const ID_GET = "http://localhost:3001/countries/"
+export const AC_GET = "http://localhost:3001/activity"
 export const FILTER = 'FILTER';
+export const AC_FILTER = 'AC_FILTER'
 export const SORT = 'SORT';
 export const SEARCH = 'SEARCH';
 
@@ -40,14 +42,21 @@ export function getDetails(countryID){
     }
 }
 
-export function getActivities(countryID){
+export function getActivities(){
 	return async function request(dispatch){
-		let apiResponse = await axios.get(ID_GET + countryID)
+		let apiResponse = await axios.get(AC_GET)
 		return dispatch({
 			type: GET_ACTIVITIES,
 			payload: apiResponse.data
 		})
 	}
+}
+
+export function activityFilter(value){
+    return (dispatch) => dispatch({
+        type: AC_FILTER,
+        payload: value 
+    })
 }
 
 export function filter(value){

@@ -57,8 +57,8 @@ export default function Activity() {
     useEffect( () => {
         dispatch(obtener())
         //eslint-disable-next-line
-    },[dispatch])
-    
+    },[])
+
 
     return (
         <div>

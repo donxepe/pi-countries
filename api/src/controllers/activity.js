@@ -19,6 +19,12 @@ const postActivity = async(req, res) =>{
     }
 }
 
+const getActivities = async(req, res) =>{
+    let db = await Activity.findAll()
+    res.send(db)
+}
+
 module.exports = {
-    postActivity
+    postActivity,
+    getActivities
 }

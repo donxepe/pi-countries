@@ -1,4 +1,4 @@
-import { FILTER, SORT, GET_COUNTRIES, SEARCH, GET_DETAIL } from "./actions";
+import { FILTER, SORT, GET_COUNTRIES, SEARCH, GET_DETAIL, GET_ACTIVITIES, AC_FILTER } from "./actions";
 
 const initialState = {
     countries: [],
@@ -21,7 +21,32 @@ export default function rootReducer(state = initialState, action){
                 ...state, 
                 detail: action.payload
             }
+        
+        case GET_ACTIVITIES:
+            return {
+                ...state,
+                activities: action.payload
+            }
 
+        case AC_FILTER:
+            if (action.payload === "Default") {
+                return {
+                    ...state,
+                    filtered: state.countries 
+                }
+            } else if (action.payload) {
+                return {
+                    ...state,
+                    filtered: state.countries.filter(c =>{
+                        return c.activities.some(e => e.name === action.payload)  
+                    })
+                }
+            } else {
+                return {
+                    ...state
+                }
+            }
+        
         case FILTER:
             if (action.payload === "Default") {
                 return {
@@ -40,6 +65,7 @@ export default function rootReducer(state = initialState, action){
                     ...state
                 }
             }
+        
 
         case SORT:
             if (action.payload === "Default") {

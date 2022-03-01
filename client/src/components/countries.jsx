@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import CountryCard from './country';
 import { useDispatch, useSelector } from 'react-redux'
-import { obtener } from '../redux/actions';
+import { getActivities, obtener } from '../redux/actions';
 import Filter from './filter';
 import Sort from './sort';
 import Search from './search';
 import Pagination from './pagination';
+import ActivityFilter from './afilter';
 
 
 export default function Cards() {
@@ -30,8 +31,11 @@ export default function Cards() {
     
     useEffect(()=>{
         dispatch(obtener())
+        dispatch(getActivities())
         // eslint-disable-next-line
     }, [])
+
+    console.log(renderCountries)
 
     return (
         <div>
@@ -39,6 +43,7 @@ export default function Cards() {
             <Search />
             <label>Filtrar por continente</label>
             <Filter />
+            <ActivityFilter/>
             <label>Ordenar</label>
             <Sort />
             <Pagination postsPerPage={postsPerPage} totalPosts={renderCountries.length} paginate={paginate} current={currentPage}/>

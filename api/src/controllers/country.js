@@ -4,15 +4,27 @@ const axios = require('axios');
 
 const getAllCountries = async(req, res) =>{
     const { name } = req.query;
+    var db = []
 
     //run findAll with no args if no name
-    let db = await Country.findAll(name && { 
-        where : {
-            name : {
-                [Op.iLike] : `%${name}%`
-            }
-        }
-    } )
+    if (name){
+        db = await Country.findAll({ 
+            where : {
+                name : {
+                    [Op.iLike] : `%${name}%`
+                }
+            },
+            include : Activity,
+
+        })
+    } else {
+        db = await Country.findAll({
+            include: Activity,
+        })
+    }
+
+
+    
 
     // ask restcountries to search by name
     //if (!name){
