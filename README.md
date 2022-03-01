@@ -102,7 +102,7 @@ __Ruta principal__: debe contener
   - Continente
 - [x] Botones/Opciones para filtrar por continente y por tipo de actividad turística
 - [x] Botones/Opciones para ordenar tanto ascendentemente como descendentemente los países por orden alfabético y por cantidad de población
-- [ ] Paginado para ir buscando y mostrando los siguientes paises, 10 paises por pagina, mostrando los primeros 9 en la primer pagina.
+- [x] Paginado para ir buscando y mostrando los siguientes paises, 10 paises por pagina, mostrando los primeros 9 en la primer pagina.
 
 __Ruta de detalle de país__: debe contener
 - [x] Los campos mostrados en la ruta principal para cada país (imagen de la bandera, nombre, código de país de 3 letras y continente)
@@ -111,16 +111,16 @@ __Ruta de detalle de país__: debe contener
 - [x] Subregión
 - [x] Área (Mostrarla en km2 o millones de km2)
 - [x] Población
-- [ ] Actividades turísticas con toda su información asociada
+- [x] Actividades turísticas con toda su información asociada
 
 __Ruta de creación de actividad turística__: debe contener
-- [ ] Un formulario __controlado con JavaScript__ con los siguientes campos:
+- [x] Un formulario __controlado con JavaScript__ con los siguientes campos:
   - Nombre
   - Dificultad
   - Duración
   - Temporada
-- [ ] Posibilidad de seleccionar/agregar varios países en simultáneo
-- [ ] Botón/Opción para crear una nueva actividad turística
+- [x] Posibilidad de seleccionar/agregar varios países en simultáneo
+- [x] Botón/Opción para crear una nueva actividad turística
 
 > Es requisito que el formulario de creación esté validado con JavaScript y no sólo con validaciones HTML. Pueden agregar las validaciones que consideren. Por ejemplo: Que el nombre de la actividad no pueda contener símbolos, que la duración no pueda exceder determinado valor, etc.
 
