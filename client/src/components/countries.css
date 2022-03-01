@@ -13,8 +13,6 @@
     margin-left: 5px;
 }
 
-
-
 .countriesTopLeft {
     display: flex;
 }
@@ -26,6 +24,6 @@
 }
 
 .countriesBottom {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(3,1fr); 
 }

@@ -1,8 +1,9 @@
 .pagButton {
-    outline: 1px solid gray;
+    border: 1px solid black;
+    border-radius: 4px;
     background-color: #282c34;
     color: white;
-    padding: 5px;
+    padding: 8px;
     padding-top: 1px;
     padding-bottom: 1px;
     text-decoration: none;

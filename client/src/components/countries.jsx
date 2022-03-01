@@ -26,23 +26,19 @@ export default function Cards() {
     const paginate = (pageNumber) => {
         pageNumber === 1 ? setPostsPerPage(9) : setPostsPerPage(10)
         setCurrentPage(pageNumber);
-
     }
 
-    
     useEffect(()=>{
         dispatch(obtener())
         dispatch(getActivities())
         // eslint-disable-next-line
     }, [])
 
-    console.log(renderCountries)
-
     return (
         <div>
             <h2 className='countriesTitle'>Paises del mundo</h2>
             <div className='countriesTop'>
-                <div className='countriesTopLeft countriesTopItems'> 
+                <div className='countriesTopLeft countriesTopItems' value='1' onClick={() => paginate(1)}> 
                     <Search />
                 </div>
                 <div className='countriesTopRight'>
@@ -58,20 +54,22 @@ export default function Cards() {
                 </div>
             </div>
             <Pagination postsPerPage={postsPerPage} totalPosts={renderCountries.length} paginate={paginate} current={currentPage}/>
+            <div className='countriesBottom'>
+                {currentPosts.length > 0 ? (
+                    currentPosts.map((c, i) => (
+                    <CountryCard 
+                        key={i} 
+                        id={c.id}
+                        name={c.name} 
+                        flag={c.flag} 
+                        continent={c.continent}
+                    />
+                    ))
+                ):(
+                    <h2>No se encontraron paises</h2>
+                )}
+            </div>
 
-            {currentPosts.length > 0 ? (
-                currentPosts.map((c, i) => (
-                <CountryCard 
-                    key={i} 
-                    id={c.id}
-                    name={c.name} 
-                    flag={c.flag} 
-                    continent={c.continent}
-                />
-                ))
-            ):(
-                <h2>No se encontraron paises</h2>
-            )}
         </div>
     )
 }

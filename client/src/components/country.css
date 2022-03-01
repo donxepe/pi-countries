@@ -1,0 +1,18 @@
+.linkC {
+    color: black;
+    text-decoration: none;
+}
+  
+.linkC:hover{
+    color: white;
+}
+
+.card{
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.flag:hover {
+    transform: scale(1.1)
+}
