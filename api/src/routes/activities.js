@@ -10,4 +10,5 @@ activityRouter.get('/', getActivities)
 
 
 
+
 module.exports = activityRouter;

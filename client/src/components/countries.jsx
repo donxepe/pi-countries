@@ -38,17 +38,17 @@ export default function Cards() {
         <div>
             <h2 className='countriesTitle'>Paises del mundo</h2>
             <div className='countriesTop'>
-                <div className='countriesTopLeft countriesTopItems' value='1' onClick={() => paginate(1)}> 
+                <div className='countriesTopLeft countriesTopItems' onClick={() => paginate(1)}> 
                     <Search />
                 </div>
                 <div className='countriesTopRight'>
-                    <div className='countriesTopItems'>
+                    <div className='countriesTopItems' onClick={() => paginate(1)}>
                         <Filter />
                     </div>
-                    <div className='countriesTopItems'>
+                    <div className='countriesTopItems'onClick={() => paginate(1)}>
                         <ActivityFilter />
                     </div>
-                    <div className='countriesTopItems'>
+                    <div className='countriesTopItems'onClick={() => paginate(1)}>
                         <Sort />
                     </div>
                 </div>

@@ -18,6 +18,7 @@ export default function Activity() {
             if (activity[prop].length === 0)
             return false
         }
+        if (activity.duration < 0 || activity.duration > 72) return false
         return true
     }
 
@@ -37,7 +38,7 @@ export default function Activity() {
             alert("Actividad agregada")
             navigate('/home')
         } else {
-            alert("Asegurate de llenar todos los campos")
+            alert("Asegurate de llenar todos los campos correctamente")
         }
     }
 
@@ -60,6 +61,7 @@ export default function Activity() {
         //eslint-disable-next-line
     },[])
 
+    var names = ''
 
     return (
         <div>
@@ -69,7 +71,7 @@ export default function Activity() {
                     <input className='aInput' name="name" value={activity.name} onChange={handleChange} />
                 </div>
                 <div className='aRow'>
-                    <label>Dificultad (1 - 5)</label>
+                    <label>Dificultad</label>
                     <select className='aInput' name="dificulty" onChange={handleChange}>
                         <option>Selecciona una</option>
                         <option value='1'>1</option>
@@ -82,7 +84,8 @@ export default function Activity() {
                 <div className='aRow'>
                     <label>Duración (horas)</label>
                     <input className='aInput' name="duration" value={activity.duration} onChange={handleChange} />
-                    {activity.duration.length > 0 && Number(activity.duration) < 1 && <h3>La duración mínima es de una hora</h3> }
+                    {activity.duration.length > 0 && Number(activity.duration) < 1 && <h3 className='failValidate'>La duración mínima es de una hora</h3> }
+                    {activity.duration.length > 0 && Number(activity.duration) > 72 && <h3 className='failValidate' >La duración máxima es de 72 horas</h3> }
                 </div>
                 <div className='aRow'>
                     <label>Temporada</label>
@@ -95,16 +98,27 @@ export default function Activity() {
                     </select>
                 </div>
                 <div className='aRow'>
-                <label>Paises</label>
-                <select className='aInput' onChange={handleSelect}>
-                    <option>Selecciona país</option>
-                    {stateCountries.length > 0 && stateCountries.sort( (a,b) =>
-                        {if (a.name > b.name) return 1
-                        return -1})
-                    .map((co,i) => {
-                        return <option key={i} value={co.id}>{co.name}</option>
-                    })}
-                </select>
+                    <label>Paises</label>
+                    <select className='aInput' onChange={handleSelect}>
+                        <option>Selecciona país</option>
+                        {stateCountries.length > 0 && stateCountries.sort( (a,b) =>
+                            {if (a.name > b.name) return 1
+                            return -1})
+                        .map((co,i) => {
+                            return <option key={i} value={co.id}>{co.name}</option>
+                        })}
+                    </select>
+                    <p>
+                        {activity.countries[0] && activity.countries.map((co,i) =>{
+                            stateCountries.forEach(element => {
+                                if (co === element.id) {
+                                names = `${element.name}`
+                                }
+
+                            });
+                                return `${names} `
+                        })}
+                    </p>
                 </div>
                 <button className='aInput aButton' type="submit">CREAR</button>
             </form>
