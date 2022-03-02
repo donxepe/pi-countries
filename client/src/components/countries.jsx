@@ -53,7 +53,9 @@ export default function Cards() {
                     </div>
                 </div>
             </div>
-            <Pagination postsPerPage={postsPerPage} totalPosts={renderCountries.length} paginate={paginate} current={currentPage}/>
+            <div className='pagination'>
+                <Pagination postsPerPage={postsPerPage} totalPosts={renderCountries.length} paginate={paginate} current={currentPage}/>
+            </div>
             <div className='countriesBottom'>
                 {currentPosts.length > 0 ? (
                     currentPosts.map((c, i) => (
