@@ -69,6 +69,7 @@ export default function Activity() {
                 <div className='aRow'>
                     <label>Nombre</label>
                     <input className='aInput' name="name" value={activity.name} onChange={handleChange} />
+                    {activity.name.length > 0 && activity.name.match(/[^A-Za-zÀ-ȕ0-9 ]/) && <h3 className='failValidate'>No se permiten caracteres especiales</h3>}
                 </div>
                 <div className='aRow'>
                     <label>Dificultad</label>
