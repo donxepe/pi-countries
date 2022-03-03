@@ -19,6 +19,7 @@ export default function Activity() {
             return false
         }
         if (activity.duration < 0 || activity.duration > 72) return false
+        if (activity.name.match(/[^A-Za-zÀ-ȕ0-9 ]/)) return false
         return true
     }
 
