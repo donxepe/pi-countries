@@ -43,6 +43,7 @@ conn.sync({ force: true })
       population : c.population,
       // not al countries have capitals!?
       capital : c.capital ? c.capital.join(', ') : 'N/A',
+      map: c.maps.googleMaps ? c.maps.googleMaps: 'N/A'
     }
     return country;
   })

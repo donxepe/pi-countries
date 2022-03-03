@@ -65,6 +65,7 @@ export default function Cards() {
                         name={c.name} 
                         flag={c.flag} 
                         continent={c.continent}
+                        map={c.map}
                     />
                     ))
                 ):(

@@ -2,7 +2,7 @@ import './country.css'
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function CountryCard({name, flag, continent, id}){
+export default function CountryCard({name, flag, continent, id, map}){
     return (
         <div className='card'>
             <div>
@@ -19,6 +19,9 @@ export default function CountryCard({name, flag, continent, id}){
             </div>
             <div>
                 <h3>{continent}</h3>
+            </div>
+            <div>
+                <a href={map}>{map}</a>
             </div>
         </div>
     )

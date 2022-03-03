@@ -34,5 +34,8 @@ module.exports = (sequelize) => {
     population : {
       type: DataTypes.INTEGER(), // even China's population fits in 32 bits.
     },
+    map: {
+      type: DataTypes.STRING(), //bring map
+    }
   });
 };
