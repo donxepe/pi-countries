@@ -102,7 +102,7 @@ __Ruta principal__: debe contener
   - Continente
 - [x] Botones/Opciones para filtrar por continente y por tipo de actividad turística
 - [x] Botones/Opciones para ordenar tanto ascendentemente como descendentemente los países por orden alfabético y por cantidad de población
-- [x] Los filtros son aditivos
+- [x] Los filtros/ordenados son aditivos
 - [x] Paginado para ir buscando y mostrando los siguientes paises, 10 paises por pagina, mostrando los primeros 9 en la primer pagina.
 
 __Ruta de detalle de país__: debe contener
