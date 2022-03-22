@@ -8,9 +8,15 @@
   <img height="200" src="./countries.png" />
 </p>
 
-## Project Objectives 
- - Build and APP using React, Redux, Node and Sequelize (on top of PostgreSQL)
- - Learn/practice git workflow.
+## Objectives
+
+- Build an app using React, Redux, Node and Sequelize.
+- Strengthen the conpects learned through the course.
+- Learn best practices.
+- Learn/Practice Git workflow.
+- Practice testing.
+
+## Objetivos del Proyecto (ES)
 
 ## Dependencies
 
@@ -23,6 +29,24 @@
 
 - Clone the repo
 - Create a `.env` file inside the `api` folder, with the following:
+## BoilerPlate
+
+Create an `.env` file in the `api` folder.
+
+```
+DB_USER=usuariodepostgres
+DB_PASSWORD=passwordDePostgres
+DB_HOST=localhost
+```
+replace with postgress user and password where apropriate.
+
+Before running the app, a postgreSQL database with the name `countries` should be created.
+
+## BoilerPlate (ES)
+
+El boilerplate cuenta con dos carpetas: `api` y `client`. En estas carpetas estará el código del back-end y el front-end respectivamente.
+
+En `api` crear un archivo llamado: `.env` que tenga la siguiente forma:
 
 ```
 DB_USER=postgresUser
