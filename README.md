@@ -40,11 +40,11 @@
 Create an `.env` file in the `api` folder.
 
 ```
-DB_USER=usuariodepostgres
-DB_PASSWORD=passwordDePostgres
+DB_USER=postgresUser
+DB_PASSWORD=passwordPostgres
 DB_HOST=localhost
 ```
-replace with postgress user and password where apropriate.
+(Replace postgresUser and passwordPostgres with your own credentials for postgres)
 
 Before running the app, a postgreSQL database with the name `countries` should be created.
 
@@ -55,13 +55,12 @@ El boilerplate cuenta con dos carpetas: `api` y `client`. En estas carpetas esta
 En `api` crear un archivo llamado: `.env` que tenga la siguiente forma:
 
 ```
-DB_USER=postgresUser
-DB_PASSWORD=passwordPostgres
+DB_USER=usuariodepostgres
+DB_PASSWORD=passwordDePostgres
 DB_HOST=localhost
 ```
-(Replace postgresUser and passwordPostgres with your own credentials for postgres)
 
-* Create a new database, name it `countries`
+* Crear una nueva base de datos con el nombre `countries`
 
 
 ### Endpoints Used (Únicos Endpoints/Flags que pueden utilizar)
