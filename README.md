@@ -8,7 +8,15 @@
   <img height="200" src="./countries.png" />
 </p>
 
-## Objetivos del Proyecto
+## Objectives
+
+- Build an app using React, Redux, Node and Sequelize.
+- Strengthen the conpects learned through the course.
+- Learn best practices.
+- Learn/Practice Git workflow.
+- Practice testing.
+
+## Objetivos del Proyecto (ES)
 
 - Construir una App utlizando React, Redux, Node y Sequelize.
 - Afirmar y conectar los conceptos aprendidos en la carrera.
@@ -16,31 +24,20 @@
 - Aprender y practicar el workflow de GIT.
 - Usar y practicar testing.
 
-## Horarios y Fechas
-
-El proyecto tendrá una duración máxima de tres semanas. En el caso de que completan todas las tareas antes de dicho lapso podrán avisar a su Instructor para coordinar una fecha de presentación del trabajo (DEMO).
-
-## Comenzando
-
- 1. Forkear el repositorio para tener una copia del mismo en sus cuentas
- 2. Clonar el repositorio en sus computadoras para comenzar a trabajar
-
-Tendrán un `boilerplate` con la estructura general tanto del servidor como de cliente.
-
-__IMPORTANTE:__ Es necesario contar minimamente con la última versión estable de Node y NPM. Asegurarse de contar con ella para poder instalar correctamente las dependecias necesarias para correr el proyecto.
-
-Actualmente las versiónes necesarias son:
-
- * __Node__: 12.18.3 o mayor
- * __NPM__: 6.14.16 o mayor
-
-Para verificar que versión tienen instalada:
-
-> node -v
->
-> npm -v
-
 ## BoilerPlate
+
+Create an `.env` file in the `api` folder.
+
+```
+DB_USER=usuariodepostgres
+DB_PASSWORD=passwordDePostgres
+DB_HOST=localhost
+```
+replace with postgress user and password where apropriate.
+
+Before running the app, a postgreSQL database with the name `countries` should be created.
+
+## BoilerPlate (ES)
 
 El boilerplate cuenta con dos carpetas: `api` y `client`. En estas carpetas estará el código del back-end y el front-end respectivamente.
 
