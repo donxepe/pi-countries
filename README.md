@@ -129,7 +129,6 @@ The models for the database includes the following:
 
 #### Backend (Node/ExpresJS)
 
-Se debe desarrollar un servidor en Node/Express con las siguientes rutas:
 The internal API provides the following routes:
 
 - [x] __GET /countries__:
