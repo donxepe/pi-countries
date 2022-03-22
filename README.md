@@ -18,6 +18,12 @@
 
 ## Objetivos del Proyecto (ES)
 
+- Construir una app utilizando React, Redux, Node y Sequelize.
+- Fortalecer los conceptos aprendidos durante la carrera.
+- Aprender mejores prácticas.
+- Practicar el flujo de GIT.
+- Practicar testing.
+
 ## Dependencies
 
  * __Node__: 12.18.3 or greater
@@ -58,37 +64,92 @@ DB_HOST=localhost
 * Create a new database, name it `countries`
 
 
-## Enunciado
-
-La idea general es crear una aplicación en la cual se pueda ver información de  distintos paises utilizando la api externa [restcountries](https://restcountries.com/) y a partir de ella poder, entre otras cosas:
-
-  - Buscar paises
-  - Filtrarlos / Ordenarlos
-  - Crear actividades turísticas
-
-__IMPORTANTE__: Para las funcionalidades de filtrado y ordenamiento NO pueden utilizar los endpoints de la API externa que ya devuelven los resultados filtrados u ordenados sino que deben realizarlo ustedes mismos. En particular alguno de los ordenamientos o filtrados debe si o si realizarse desde el frontend.
-
-### Únicos Endpoints/Flags que pueden utilizar
+### Endpoints Used (Únicos Endpoints/Flags que pueden utilizar)
 
   - GET https://restcountries.com/v3/all
   - GET https://restcountries.com/v3/name/{name}
   - GET https://restcountries.com/v3/alpha/{code}
 
-### Requerimientos mínimos:
+#### Frontend features (React/Redux/Vanilla CSS)
 
-A continuación se detallaran los requerimientos mínimos para la aprobación del proyecto individial. Aquellos que deseen agregar más funcionalidades podrán hacerlo. En cuanto al diseño visual no va a haber wireframes ni prototipos prefijados sino que tendrán libertad de hacerlo a su gusto pero tienen que aplicar los conocimientos de estilos vistos en el curso para que quede agradable a la vista.
+__Landing Page__
 
-__IMPORTANTE__: No se permitirá utilizar librerías externas para aplicar estilos a la aplicación. Tendrán que utilizar CSS con algunas de las opciones que vimos en dicha clase (CSS puro, CSS Modules o Styled Components)
+__Main Route__: 
+- [x] Search countries by name.
+- [x] Área donde se verá el listado de países. Al iniciar deberá cargar los primeros resultados obtenidos desde la ruta `GET /countries` y deberá mostrar su:
+- [x] Country listing, with the following:
+  - Country flag
+  - Name
+  - Continent
+  - Pagination (9 countries in the first page, 10 onwards)
+- [x] Hability to filter by country and tourism activities.
+- [x] Hability to sort countries by name and population. (additive filtering)
 
-#### Tecnologías necesarias:
-- [x] React
-- [x] Redux
-- [x] Express
-- [x] Sequelize - Postgres
+__Country Detail Route__: 
+- [x] Fields for:
+  - Flag
+  - name
+  - 3 letter code.
+  - continent
+  - Capital
+  - Subregion
+  - Area in (km2)
+  - Population
+  - Tourism activites with their descriptions.
 
-#### Frontend
+__Activity Creation Route__: 
+- [x] Un formulario __controlado con JavaScript__ con los siguientes campos:
+- [x] Javscript controlled form with the following fields:
+  - Name
+  - Difficulty
+  - Length
+  - Season
+- [x] Hability to add several countries at a time.
 
-Se debe desarrollar una aplicación de React/Redux que contenga las siguientes pantallas/rutas.
+#### Database (Sequelize/PostgreSQL)
+
+The models for the database includes the following:
+
+- [x] País con las siguientes propiedades:
+- [x] Country model:
+  - ID (Código de 3 letras) *
+  - Name
+  - Country Flag 
+  - Continent
+  - Capital 
+  - Subregion
+  - Area
+  - Population
+- [x] Tourism Activity model: 
+  - ID
+  - Name
+  - Difficulty (Between 1 and 5)
+  - Length
+  - Season (Spring, Summer, Fall, Winter)
+
+#### Backend (Node/ExpresJS)
+
+Se debe desarrollar un servidor en Node/Express con las siguientes rutas:
+The internal API provides the following routes:
+
+- [x] __GET /countries__:
+  - Populates the database with some data from the public API at server startup.
+  - Provides a country listing.
+- [x] __GET /countries/{idPais}__:
+  - Provides the detail for a particular country. (Always queries the public API for the missing data)
+  - Includes the data for the user created tourism activities.
+- [x] __GET /countries?name="..."__:
+  - Provides the countries that more or less match the query parameter.
+- [x] __POST /activity__:
+  - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de actividad turística por body
+  - Receives the data colected by the controlled form on the Activity Creation route.
+  - Creates an tourism activity on the database with said data.
+
+#### Testing
+- [x] Testing for one route in the backend
+- [x] Sequelize model tested.
+
+#### Características del Frontend (ES)
 
 __Pagina inicial__: deben armar una landing page con
 - [x] Alguna imagen de fondo representativa al proyecto
@@ -169,7 +230,6 @@ __IMPORTANTE__: No está permitido utilizar los filtrados, ordenamientos y pagin
 
 
 #### Testing
-- [ ] Al menos tener un componente del frontend con sus tests respectivos
 - [x] Al menos tener una ruta del backend con sus tests respectivos
 - [x] Al menos tener un modelo de la base de datos con sus tests respectivos
 
